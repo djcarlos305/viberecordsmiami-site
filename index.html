@@ -57,7 +57,7 @@
     .artist-card p{max-width:540px;color:#d0d0d0;margin:0}
     .sounds{background:linear-gradient(135deg,#ee4a2c,#ff7b38);color:#fff}
     .sound-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.35);border-left:1px solid rgba(255,255,255,.35);margin-top:45px}
-    .sound{min-height:170px;padding:24px;border-right:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);display:flex;flex-direction:column;justify-content:space-between}
+    .sound{min-height:170px;padding:24px;border-right:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:#fff;transition:background .2s ease,transform .2s ease}\n    a.sound:hover,a.sound:focus-visible{background:rgba(255,255,255,.14);transform:translateY(-3px);outline:2px solid #fff;outline-offset:-2px}\n    .playlist-link{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
     .sound span{font-size:.7rem;letter-spacing:.15em;opacity:.8}
     .sound b{font-size:1.25rem;text-transform:uppercase}
     .releases{background:#0c0e12}
@@ -132,7 +132,7 @@
       <div class="section-kicker" style="color:#fff">One label. Many rhythms.</div>
       <h2>World music<br>the Miami way.</h2>
       <div class="sound-grid">
-        <div class="sound"><span>01</span><b>Salsa</b></div>
+        <a class="sound" href="https://www.youtube.com/playlist?list=PLaeXopmkEVXkqnxTNquiwF2jxgUkG1yYh" target="_blank" rel="noopener noreferrer" aria-label="Play the Vibe Records Miami Salsa playlist on YouTube"><span>01</span><b>Salsa</b><span class="playlist-link">Play the Salsa playlist ↗</span></a>
         <div class="sound"><span>02</span><b>Afrobeat</b></div>
         <div class="sound"><span>03</span><b>HOUSE & Dance</b></div>
         <div class="sound"><span>04</span><b>Reggae-influenced</b></div>

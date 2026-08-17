@@ -49,12 +49,13 @@
     .moment b{color:var(--orange);font-size:1.6rem;display:block}
     .moment p{margin:4px 0}
     .artists{background:#0b0c10}
-    .artist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .artist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
     .artist-card{min-height:460px;padding:38px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;border:1px solid var(--line);border-bottom:0;background:
       linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.08)),
       url('emilio-iglesia-black-white.jpg') center 30%/cover}
     .artist-card:nth-child(2){background-image:linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.08)),url('orquesta-305-studio-black-white.jpg')}
-    .artist-card:nth-child(3){background-image:linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.08)),url('dj-carlos-305-black-white.png')}
+    .artist-card:nth-child(3){background-image:linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.08)),url('dj-carlos-305-black-white.png');background-position:center,center top;background-size:cover,105% auto;background-repeat:no-repeat;background-color:#08090b}
+    .artist-card:nth-child(4){background-image:linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.18)),var(--vibe-logo);background-position:center,center;background-size:cover,70% auto;background-repeat:no-repeat;background-color:#08090b}
     .artist-card small{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-weight:800}
     .artist-card h3{font-size:clamp(1.8rem,2.7vw,3rem);line-height:.96;margin:10px 0;text-transform:uppercase}
     .artist-card p{max-width:540px;color:#d0d0d0;margin:0}
@@ -128,6 +129,7 @@
         <article class="artist-card"><small>International Latin artist</small><h3>Emilio Iglesia</h3><p>A modern voice rooted in Cuban flavor, timeless storytelling and the energy of contemporary Latin music.</p></article>
         <article class="artist-card"><small>Miami Salsa collective</small><h3>Orquesta 305</h3><p>Classic sabor, new-generation production and unmistakable Miami identity.</p></article>
         <article class="artist-card"><small>International DJ &amp; Producer</small><h3>DJ Carlos 305</h3><p>The creative force behind Vibe Records, connecting Miami roots to international sounds.</p></article>
+        <article class="artist-card"><small>Vibe Records Miami artist</small><h3>Mary Jane Sánchez</h3><p>A new voice from the 305. Artist profile coming soon.</p></article>
       </div>
     </div>
   </section>

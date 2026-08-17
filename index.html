@@ -50,13 +50,13 @@
     .moment p{margin:4px 0}
     .artists{background:#0b0c10}
     .artist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    .artist-card{min-height:460px;padding:38px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;border:1px solid var(--line);border-bottom:0;background:
+    .artist-card{min-height:0;aspect-ratio:1/1;padding:38px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;border:1px solid var(--line);border-bottom:0;background:
       linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.08)),
       url('emilio-iglesia-black-white.jpg') center 30%/cover}
     .artist-card:nth-child(2){background-image:linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.08)),url('orquesta-305-studio-black-white.jpg')}
-    .artist-card:nth-child(3){background:#08090b;padding:0;display:block;overflow:visible}
+    .artist-card:nth-child(3){background:#08090b;padding:0;display:block;position:relative;overflow:hidden}
     .artist-card-dj .artist-photo{display:block;width:100%;height:auto;max-width:none;margin:0}
-    .artist-card-dj .artist-copy{display:block;width:100%;padding:28px 38px 34px;background:#08090b}
+    .artist-card-dj .artist-copy{position:absolute;z-index:2;left:0;right:0;bottom:0;width:100%;padding:86px 38px 34px;background:linear-gradient(0deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.88) 58%,rgba(0,0,0,0) 100%)}
     .artist-card:nth-child(4){background-image:linear-gradient(0deg,rgba(0,0,0,.93),rgba(0,0,0,.18)),var(--vibe-logo);background-position:center,center;background-size:cover,70% auto;background-repeat:no-repeat;background-color:#08090b}
     .artist-card small{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-weight:800}
     .artist-card h3{font-size:clamp(1.8rem,2.7vw,3rem);line-height:.96;margin:10px 0;text-transform:uppercase}

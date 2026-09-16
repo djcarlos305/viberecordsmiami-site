@@ -45,10 +45,10 @@ footer{background:var(--navy2);color:#adc4d4;padding:28px 0;font-size:.78rem}.fo
     <a class="brand" href="#servicios"><img src="logo.webp" alt="Trámites Aprobado"></a>
     <div class="navlinks">
       <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
-      <a href="#calculadora" data-es="Calculadora" data-en="Calculator">Calculadora</a>
       <a href="#viajes" data-es="Viajes" data-en="Travel">Viajes</a>
-      <a href="#proceso" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
       <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+      <a href="#proceso" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
+      <a href="#calculadora" data-es="Calculadora" data-en="Calculator">Calculadora</a>
       <button class="lang" id="lang">EN</button>
     </div>
   </div>
@@ -73,42 +73,6 @@ footer{background:var(--navy2);color:#adc4d4;padding:28px 0;font-size:.78rem}.fo
   </div>
 </section>
 
-<section class="calculator" id="calculadora">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow" data-es="Herramienta gratis" data-en="Free tool">Herramienta gratis</div>
-      <h2 class="title" data-es="Calculadora de hipoteca en Florida" data-en="Florida mortgage calculator">Calculadora de hipoteca en Florida</h2>
-      <p class="intro" data-es="Calcula un pago mensual aproximado incluyendo principal, intereses, impuestos, seguro, asociación y PMI." data-en="Estimate a monthly payment including principal, interest, property taxes, insurance, HOA and PMI.">Calcula un pago mensual aproximado incluyendo principal, intereses, impuestos, seguro, asociación y PMI.</p>
-    </div>
-    <div class="calc-shell">
-      <form class="calc-form" id="mortgageForm">
-        <div class="field"><label for="homePrice" data-es="Precio de la propiedad" data-en="Home price">Precio de la propiedad</label><input id="homePrice" type="number" min="0" step="1000" value="350000" inputmode="decimal"></div>
-        <div class="field"><label for="downPayment" data-es="Pago inicial ($)" data-en="Down payment ($)">Pago inicial ($)</label><input id="downPayment" type="number" min="0" step="1000" value="70000" inputmode="decimal"></div>
-        <div class="field"><label for="interestRate" data-es="Tasa de interés anual (%)" data-en="Annual interest rate (%)">Tasa de interés anual (%)</label><input id="interestRate" type="number" min="0" max="30" step="0.01" value="6.25" inputmode="decimal"></div>
-        <div class="field"><label for="loanTerm" data-es="Plazo del préstamo" data-en="Loan term">Plazo del préstamo</label><select id="loanTerm"><option value="30" data-es="30 años" data-en="30 years">30 años</option><option value="20" data-es="20 años" data-en="20 years">20 años</option><option value="15" data-es="15 años" data-en="15 years">15 años</option></select></div>
-        <div class="field"><label for="propertyTax" data-es="Impuestos anuales" data-en="Annual property taxes">Impuestos anuales</label><input id="propertyTax" type="number" min="0" step="100" value="4500" inputmode="decimal"></div>
-        <div class="field"><label for="insurance" data-es="Seguro anual" data-en="Annual homeowners insurance">Seguro anual</label><input id="insurance" type="number" min="0" step="100" value="2400" inputmode="decimal"></div>
-        <div class="field"><label for="hoa" data-es="Asociación / HOA mensual" data-en="Monthly HOA">Asociación / HOA mensual</label><input id="hoa" type="number" min="0" step="10" value="0" inputmode="decimal"></div>
-        <div class="field"><label for="pmi" data-es="PMI mensual (opcional)" data-en="Monthly PMI (optional)">PMI mensual (opcional)</label><input id="pmi" type="number" min="0" step="10" value="0" inputmode="decimal"></div>
-        <div class="calc-error" id="calcError" role="alert"></div>
-      </form>
-      <aside class="calc-results" aria-live="polite">
-        <h3 data-es="Pago mensual estimado" data-en="Estimated monthly payment">Pago mensual estimado</h3>
-        <div class="payment"><span id="monthlyTotal">$0</span><span data-es=" / mes" data-en=" / month"> / mes</span></div>
-        <p class="result-note" data-es="Estimado basado en la información ingresada." data-en="Estimate based on the information entered.">Estimado basado en la información ingresada.</p>
-        <div class="breakdown">
-          <div class="row"><span data-es="Principal e intereses" data-en="Principal and interest">Principal e intereses</span><strong id="principalInterest">$0</strong></div>
-          <div class="row"><span data-es="Impuestos" data-en="Property taxes">Impuestos</span><strong id="taxMonthly">$0</strong></div>
-          <div class="row"><span data-es="Seguro" data-en="Insurance">Seguro</span><strong id="insuranceMonthly">$0</strong></div>
-          <div class="row"><span data-es="HOA + PMI" data-en="HOA + PMI">HOA + PMI</span><strong id="extrasMonthly">$0</strong></div>
-          <div class="row"><span data-es="Intereses durante el préstamo" data-en="Interest over loan term">Intereses durante el préstamo</span><strong id="totalInterest">$0</strong></div>
-        </div>
-      </aside>
-    </div>
-    <p class="calc-disclaimer" data-es="Esta calculadora ofrece solamente una estimación educativa. No constituye una cotización, oferta de crédito ni asesoramiento financiero, hipotecario, legal o fiscal. Los pagos reales pueden variar." data-en="This calculator provides an educational estimate only. It is not a quote, credit offer, or financial, mortgage, legal or tax advice. Actual payments may vary.">Esta calculadora ofrece solamente una estimación educativa. No constituye una cotización, oferta de crédito ni asesoramiento financiero, hipotecario, legal o fiscal. Los pagos reales pueden variar.</p>
-  </div>
-</section>
-
 <section class="travel" id="viajes">
   <div class="wrap travelgrid">
     <div>
@@ -126,6 +90,33 @@ footer{background:var(--navy2);color:#adc4d4;padding:28px 0;font-size:.78rem}.fo
       <div class="chip" data-es="⌕ Citas oficiales" data-en="⌕ Official appointments">⌕ Citas oficiales</div>
       <div class="chip" data-es="↗ Seguimiento de solicitudes" data-en="↗ Application follow-up">↗ Seguimiento de solicitudes</div>
     </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap contactgrid">
+    <div>
+      <div class="eyebrow" data-es="Miami, Florida" data-en="Miami, Florida">Miami, Florida</div>
+      <h2 class="title" data-es="¿Qué trámite te está dando trabajo?" data-en="What paperwork is giving you trouble?">¿Qué trámite te está dando trabajo?</h2>
+      <p class="intro" data-es="Cuéntanos qué necesitas. Si es algo que podemos manejar como servicio administrativo, te explicamos el próximo paso." data-en="Tell us what you need. If it is something we can handle as an administrative service, we will explain the next step.">Cuéntanos qué necesitas. Si es algo que podemos manejar como servicio administrativo, te explicamos el próximo paso.</p>
+      <p class="contactmail">info@djcarlos.com</p>
+    </div>
+    <form class="form" id="leadForm">
+      <input id="name" required placeholder="Nombre / Name">
+      <input id="email" required type="email" placeholder="Email">
+      <select id="need">
+        <option>Formularios / Forms</option>
+        <option>Impresión o escaneo / Printing or scanning</option>
+        <option>Portales y documentos / Portals and documents</option>
+        <option>Viajes / Travel</option>
+        <option>Cartas o currículum / Letters or résumé</option>
+        <option>Otro / Other</option>
+      </select>
+      <input id="phone" placeholder="Teléfono / Phone">
+      <textarea class="full" id="details" placeholder="Cuéntanos qué necesitas / Tell us what you need"></textarea>
+      <button class="full" type="submit" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
+      <div class="micro full" id="formMsg" data-es="Al enviar, se abrirá tu aplicación de correo para que revises el mensaje antes de enviarlo." data-en="Submitting opens your email app so you can review the message before sending.">Al enviar, se abrirá tu aplicación de correo para que revises el mensaje antes de enviarlo.</div>
+    </form>
   </div>
 </section>
 
@@ -181,32 +172,43 @@ footer{background:var(--navy2);color:#adc4d4;padding:28px 0;font-size:.78rem}.fo
   </div>
 </section>
 
-<section class="contact" id="contacto">
-  <div class="wrap contactgrid">
-    <div>
-      <div class="eyebrow" data-es="Miami, Florida" data-en="Miami, Florida">Miami, Florida</div>
-      <h2 class="title" data-es="¿Qué trámite te está dando trabajo?" data-en="What paperwork is giving you trouble?">¿Qué trámite te está dando trabajo?</h2>
-      <p class="intro" data-es="Cuéntanos qué necesitas. Si es algo que podemos manejar como servicio administrativo, te explicamos el próximo paso." data-en="Tell us what you need. If it is something we can handle as an administrative service, we will explain the next step.">Cuéntanos qué necesitas. Si es algo que podemos manejar como servicio administrativo, te explicamos el próximo paso.</p>
-      <p class="contactmail">info@djcarlos.com</p>
+<section class="calculator" id="calculadora">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" data-es="Herramienta gratis" data-en="Free tool">Herramienta gratis</div>
+      <h2 class="title" data-es="Calculadora de hipoteca en Florida" data-en="Florida mortgage calculator">Calculadora de hipoteca en Florida</h2>
+      <p class="intro" data-es="Calcula un pago mensual aproximado incluyendo principal, intereses, impuestos, seguro, asociación y PMI." data-en="Estimate a monthly payment including principal, interest, property taxes, insurance, HOA and PMI.">Calcula un pago mensual aproximado incluyendo principal, intereses, impuestos, seguro, asociación y PMI.</p>
     </div>
-    <form class="form" id="leadForm">
-      <input id="name" required placeholder="Nombre / Name">
-      <input id="email" required type="email" placeholder="Email">
-      <select id="need">
-        <option>Formularios / Forms</option>
-        <option>Impresión o escaneo / Printing or scanning</option>
-        <option>Portales y documentos / Portals and documents</option>
-        <option>Viajes / Travel</option>
-        <option>Cartas o currículum / Letters or résumé</option>
-        <option>Otro / Other</option>
-      </select>
-      <input id="phone" placeholder="Teléfono / Phone">
-      <textarea class="full" id="details" placeholder="Cuéntanos qué necesitas / Tell us what you need"></textarea>
-      <button class="full" type="submit" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
-      <div class="micro full" id="formMsg" data-es="Al enviar, se abrirá tu aplicación de correo para que revises el mensaje antes de enviarlo." data-en="Submitting opens your email app so you can review the message before sending.">Al enviar, se abrirá tu aplicación de correo para que revises el mensaje antes de enviarlo.</div>
-    </form>
+    <div class="calc-shell">
+      <form class="calc-form" id="mortgageForm">
+        <div class="field"><label for="homePrice" data-es="Precio de la propiedad" data-en="Home price">Precio de la propiedad</label><input id="homePrice" type="number" min="0" step="1000" value="350000" inputmode="decimal"></div>
+        <div class="field"><label for="downPayment" data-es="Pago inicial ($)" data-en="Down payment ($)">Pago inicial ($)</label><input id="downPayment" type="number" min="0" step="1000" value="70000" inputmode="decimal"></div>
+        <div class="field"><label for="interestRate" data-es="Tasa de interés anual (%)" data-en="Annual interest rate (%)">Tasa de interés anual (%)</label><input id="interestRate" type="number" min="0" max="30" step="0.01" value="6.25" inputmode="decimal"></div>
+        <div class="field"><label for="loanTerm" data-es="Plazo del préstamo" data-en="Loan term">Plazo del préstamo</label><select id="loanTerm"><option value="30" data-es="30 años" data-en="30 years">30 años</option><option value="20" data-es="20 años" data-en="20 years">20 años</option><option value="15" data-es="15 años" data-en="15 years">15 años</option></select></div>
+        <div class="field"><label for="propertyTax" data-es="Impuestos anuales" data-en="Annual property taxes">Impuestos anuales</label><input id="propertyTax" type="number" min="0" step="100" value="4500" inputmode="decimal"></div>
+        <div class="field"><label for="insurance" data-es="Seguro anual" data-en="Annual homeowners insurance">Seguro anual</label><input id="insurance" type="number" min="0" step="100" value="2400" inputmode="decimal"></div>
+        <div class="field"><label for="hoa" data-es="Asociación / HOA mensual" data-en="Monthly HOA">Asociación / HOA mensual</label><input id="hoa" type="number" min="0" step="10" value="0" inputmode="decimal"></div>
+        <div class="field"><label for="pmi" data-es="PMI mensual (opcional)" data-en="Monthly PMI (optional)">PMI mensual (opcional)</label><input id="pmi" type="number" min="0" step="10" value="0" inputmode="decimal"></div>
+        <div class="calc-error" id="calcError" role="alert"></div>
+      </form>
+      <aside class="calc-results" aria-live="polite">
+        <h3 data-es="Pago mensual estimado" data-en="Estimated monthly payment">Pago mensual estimado</h3>
+        <div class="payment"><span id="monthlyTotal">$0</span><span data-es=" / mes" data-en=" / month"> / mes</span></div>
+        <p class="result-note" data-es="Estimado basado en la información ingresada." data-en="Estimate based on the information entered.">Estimado basado en la información ingresada.</p>
+        <div class="breakdown">
+          <div class="row"><span data-es="Principal e intereses" data-en="Principal and interest">Principal e intereses</span><strong id="principalInterest">$0</strong></div>
+          <div class="row"><span data-es="Impuestos" data-en="Property taxes">Impuestos</span><strong id="taxMonthly">$0</strong></div>
+          <div class="row"><span data-es="Seguro" data-en="Insurance">Seguro</span><strong id="insuranceMonthly">$0</strong></div>
+          <div class="row"><span data-es="HOA + PMI" data-en="HOA + PMI">HOA + PMI</span><strong id="extrasMonthly">$0</strong></div>
+          <div class="row"><span data-es="Intereses durante el préstamo" data-en="Interest over loan term">Intereses durante el préstamo</span><strong id="totalInterest">$0</strong></div>
+        </div>
+      </aside>
+    </div>
+    <p class="calc-disclaimer" data-es="Esta calculadora ofrece solamente una estimación educativa. No constituye una cotización, oferta de crédito ni asesoramiento financiero, hipotecario, legal o fiscal. Los pagos reales pueden variar." data-en="This calculator provides an educational estimate only. It is not a quote, credit offer, or financial, mortgage, legal or tax advice. Actual payments may vary.">Esta calculadora ofrece solamente una estimación educativa. No constituye una cotización, oferta de crédito ni asesoramiento financiero, hipotecario, legal o fiscal. Los pagos reales pueden variar.</p>
   </div>
 </section>
+
+
 </main>
 
 <footer><div class="wrap footerin"><span>© 2026 Trámites Aprobado · Miami, Florida</span><span data-es="Una iniciativa de Underground Multimedia LLC" data-en="An Underground Multimedia LLC initiative">Una iniciativa de Underground Multimedia LLC</span></div></footer>

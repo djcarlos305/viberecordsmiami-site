@@ -28,7 +28,7 @@
         <div class="times"><span id="current">0:00</span><span id="duration">4:37</span></div>
         <div class="transport"><button class="circle" id="prev" type="button" aria-label="Previous track">❮</button><button class="circle play" id="play" type="button" aria-label="Play">▶</button><button class="circle" id="next" type="button" aria-label="Next track">❯</button></div>
         <div class="volume-row"><span aria-hidden="true">♪</span><input id="volume" aria-label="Volume" type="range" min="0" max="100" value="72"><span id="volumeValue">72%</span></div>
-        <div class="demo-note">Interactive visual demo. Tony’s final audio files will replace the simulated playback.</div>
+        <div class="demo-note">Original full-quality audio supplied by Tony Carrasco.</div>
       </div>
       <div class="playlist"><div class="playlist-head"><span>Playlist</span><span>10 tracks</span></div><div id="tracklist"></div></div>
     </section>
@@ -36,18 +36,32 @@
   </main>
   <script>
     (()=>{
-      const tracks=[['Track 01',277],['Track 02',232],['Track 03',250],['Track 04',208],['Track 05',301],['Track 06',262],['Track 07',225],['Track 08',258],['Track 09',230],['Track 10',246]];
-      let index=0,elapsed=0,playing=false,timer=null;
-      const $=id=>document.getElementById(id), title=$('title'),counter=$('counter'),seek=$('seek'),current=$('current'),duration=$('duration'),play=$('play'),list=$('tracklist'),status=$('status'),wave=$('wave');
+      const tracks=[
+        ['I Got Love — SoulPhoniC Suite Mix',638,'audio/01.mp3'],
+        ['Soul Makossa — Dainskin Remix',332,'audio/02.mp3'],
+        ['I Just Might — Tony Carrasco Edit',298,'audio/03.mp3'],
+        ['Welcome To The Jungle — Unreleased Mix',566,'audio/04.mp3'],
+        ['No One Gets The Prize — Tony Carrasco Edit',434,'audio/05.mp3'],
+        ['Seven Lines of Umbanda — Umbanda Mix',364,'audio/06.mp3'],
+        ['Dirty Talk — Radio Remix',194,'audio/07.mp3'],
+        ['Synplant — Tony Carrasco Edit',298,'audio/08.mp3'],
+        ['Never Enough — Tony Carrasco Edit',272,'audio/09.mp3'],
+        ['Out Of Luck — Tony Carrasco Edit',363,'audio/10.mp3']
+      ];
+      let index=0;
+      const audio=new Audio(), $=id=>document.getElementById(id), title=$('title'),counter=$('counter'),seek=$('seek'),current=$('current'),duration=$('duration'),play=$('play'),list=$('tracklist'),status=$('status'),wave=$('wave');
       const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+      audio.preload='metadata'; audio.volume=.72;
       Array.from({length:58},(_,i)=>{const bar=document.createElement('i');bar.style.setProperty('--h',`${18+((i*37)%68)}%`);wave.appendChild(bar)});
       function listRender(){list.innerHTML='';tracks.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.className='track';b.setAttribute('aria-current',String(i===index));b.innerHTML=`<span class="num">${String(i+1).padStart(2,'0')}</span><span class="tname">${t[0]}</span><span class="dur">${fmt(t[1])}</span>`;b.onclick=()=>select(i,true);list.appendChild(b)})}
-      function paint(){const t=tracks[index],ratio=Math.min(1,elapsed/t[1]);title.textContent=t[0];counter.textContent=`${String(index+1).padStart(2,'0')} / 10`;current.textContent=fmt(elapsed);duration.textContent=fmt(t[1]);seek.value=Math.round(ratio*1000);[...wave.children].forEach((b,i)=>b.classList.toggle('on',i/58<=ratio));listRender()}
-      function start(){playing=true;play.textContent='Ⅱ';play.setAttribute('aria-label','Pause');status.textContent=`Playing ${tracks[index][0]} demo…`;if(!timer)timer=setInterval(tick,1000)}
-      function pause(){playing=false;play.textContent='▶';play.setAttribute('aria-label','Play');status.textContent=`Paused ${tracks[index][0]} at ${fmt(elapsed)}.`}
-      function select(i,auto=false){index=(i+tracks.length)%tracks.length;elapsed=0;paint();if(auto||playing)start()}
-      function tick(){if(!playing)return;elapsed++;if(elapsed>=tracks[index][1])select(index+1);else paint()}
-      play.onclick=()=>playing?pause():start();$('prev').onclick=()=>select(index-1,playing);$('next').onclick=()=>select(index+1,playing);seek.oninput=()=>{elapsed=(Number(seek.value)/1000)*tracks[index][1];paint()};$('volume').oninput=e=>$('volumeValue').textContent=`${e.target.value}%`;paint();
+      function paint(){const t=tracks[index],len=Number.isFinite(audio.duration)?audio.duration:t[1],elapsed=audio.currentTime||0,ratio=len?Math.min(1,elapsed/len):0;title.textContent=t[0];counter.textContent=`${String(index+1).padStart(2,'0')} / 10`;current.textContent=fmt(elapsed);duration.textContent=fmt(len);seek.value=Math.round(ratio*1000);[...wave.children].forEach((b,i)=>b.classList.toggle('on',i/58<=ratio))}
+      function setPlayState(){const playing=!audio.paused;play.textContent=playing?'Ⅱ':'▶';play.setAttribute('aria-label',playing?'Pause':'Play');status.textContent=playing?`Playing ${tracks[index][0]}…`:`Paused ${tracks[index][0]} at ${fmt(audio.currentTime||0)}.`}
+      function select(i,auto=false){index=(i+tracks.length)%tracks.length;audio.src=tracks[index][2];audio.load();listRender();paint();if(auto)audio.play().catch(()=>{status.textContent='Press play to begin.'})}
+      play.onclick=()=>audio.paused?audio.play():audio.pause();$('prev').onclick=()=>select(index-1,true);$('next').onclick=()=>select(index+1,true);
+      seek.oninput=()=>{const len=Number.isFinite(audio.duration)?audio.duration:tracks[index][1];audio.currentTime=(Number(seek.value)/1000)*len};
+      $('volume').oninput=e=>{audio.volume=Number(e.target.value)/100;$('volumeValue').textContent=`${e.target.value}%`};
+      audio.ontimeupdate=paint;audio.onloadedmetadata=paint;audio.onplay=setPlayState;audio.onpause=setPlayState;audio.onended=()=>select(index+1,true);audio.onerror=()=>status.textContent='This track could not be loaded. Please try again.';
+      select(0,false);
     })();
   </script>
 </body>

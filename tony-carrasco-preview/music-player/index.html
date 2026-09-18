@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070707">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Tony Carrasco — Music Player Preview</title>
+  <style>
+    :root{--bg:#070707;--card:#111;--card2:#161616;--text:#f5f1e8;--muted:#a7a29a;--line:#303030;--acid:#c8ff00;--cyan:#39e6ff;--max:1180px}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{color:var(--text);background:radial-gradient(circle at 12% 8%,rgba(200,255,0,.1),transparent 30rem),radial-gradient(circle at 88% 86%,rgba(57,230,255,.08),transparent 32rem),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}.shell{width:min(var(--max),calc(100% - 32px));margin:auto;padding:32px 0 42px}.topline{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}.brand{font-size:.82rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.brand span{color:var(--acid)}.preview{color:var(--muted);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase}
+    .player{display:grid;grid-template-columns:minmax(260px,.78fr) minmax(360px,1.25fr) minmax(250px,.9fr);min-height:650px;border:1px solid var(--line);background:rgba(12,12,12,.88);box-shadow:0 28px 90px rgba(0,0,0,.55);overflow:hidden}.portrait{position:relative;min-height:650px;background:#151515;overflow:hidden}.portrait img{width:100%;height:100%;display:block;object-fit:cover;object-position:52% 30%;filter:saturate(.92) contrast(1.04)}.portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 46%,rgba(5,5,5,.92) 100%)}.portrait-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:28px}.portrait-copy small{display:block;color:var(--acid);font-weight:800;letter-spacing:.18em;text-transform:uppercase}.portrait-copy h1{font-size:clamp(2.5rem,5vw,4.6rem);line-height:.86;letter-spacing:-.065em;text-transform:uppercase;margin:10px 0 12px}.portrait-copy p{color:#cbc5ba;margin:0;font-size:.88rem}
+    .controls{padding:38px 34px;display:flex;flex-direction:column;border-left:1px solid var(--line);border-right:1px solid var(--line)}.kicker{font-size:.72rem;color:var(--acid);font-weight:900;letter-spacing:.18em;text-transform:uppercase}.track-title{font-size:clamp(2rem,4vw,3.8rem);line-height:.95;letter-spacing:-.05em;margin:12px 0 8px}.sub{color:var(--muted);font-size:.9rem}.counter{margin-left:auto;color:#d8d3ca;font-variant-numeric:tabular-nums}.meta{display:flex;align-items:center;gap:12px}.wave{height:92px;display:flex;align-items:center;gap:4px;margin:32px 0 10px;overflow:hidden}.wave i{display:block;flex:1;min-width:2px;max-width:5px;height:var(--h);background:#353535;border-radius:4px;transition:background .2s}.wave i.on{background:linear-gradient(180deg,var(--acid),var(--cyan))}.seek{width:100%;accent-color:var(--acid);cursor:pointer}.times{display:flex;justify-content:space-between;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}.transport{display:flex;justify-content:center;align-items:center;gap:20px;margin:34px 0}.circle{appearance:none;border:1px solid #3b3b3b;background:#151515;color:var(--text);border-radius:50%;width:48px;height:48px;font-size:1.05rem;cursor:pointer;transition:.2s}.circle:hover{border-color:#777;transform:translateY(-2px)}.play{width:76px;height:76px;background:var(--acid);color:#080808;border-color:var(--acid);font-size:1.55rem;font-weight:900}.play:hover{box-shadow:0 0 32px rgba(200,255,0,.18)}.volume-row{display:flex;align-items:center;gap:12px;margin-top:auto;color:var(--muted)}.volume-row input{width:100%;accent-color:var(--acid)}.demo-note{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);color:#7f7a73;font-size:.76rem}
+    .playlist{padding:18px 12px;background:rgba(255,255,255,.015);overflow:auto}.playlist-head{display:flex;align-items:center;justify-content:space-between;padding:10px 10px 14px;color:var(--muted);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}.track{width:100%;display:grid;grid-template-columns:34px minmax(0,1fr) 44px;align-items:center;gap:8px;min-height:54px;padding:8px 10px;border:1px solid transparent;border-radius:4px;background:transparent;color:var(--text);text-align:left;cursor:pointer}.track:hover{background:#181818}.track[aria-current="true"]{border-color:#414141;background:#1a1a1a}.num{color:#777;font-variant-numeric:tabular-nums}.track[aria-current="true"] .num{color:var(--acid)}.tname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dur{color:#8d8880;font-size:.76rem;text-align:right;font-variant-numeric:tabular-nums}.status{min-height:24px;text-align:center;color:var(--muted);font-size:.82rem;margin-top:16px}
+    @media(max-width:950px){.player{grid-template-columns:.85fr 1.15fr}.playlist{grid-column:1/-1;max-height:none;border-top:1px solid var(--line)}.portrait{min-height:610px}.controls{min-height:610px;border-right:0}}@media(max-width:680px){.shell{width:min(100% - 20px,560px);padding-top:20px}.preview{display:none}.player{display:block}.portrait{min-height:460px}.controls{min-height:550px;padding:30px 22px;border:0;border-top:1px solid var(--line)}.wave{height:70px}.track-title{font-size:2.6rem}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topline"><div class="brand">TONY <span>CARRASCO</span></div><div class="preview">Private player preview</div></div>
+    <section class="player" aria-label="Tony Carrasco ten-track music player demonstration">
+      <div class="portrait"><img src="tony-carrasco-portrait.jpg" alt="Tony Carrasco"><div class="portrait-copy"><small>DJ • Producer • Remixer</small><h1>Tony<br>Carrasco</h1><p>Ten selections from a life inside the rhythm.</p></div></div>
+      <div class="controls">
+        <div class="meta"><span class="kicker">Now playing</span><span class="counter" id="counter">01 / 10</span></div>
+        <h2 class="track-title" id="title">Track 01</h2><div class="sub">Tony Carrasco • Player preview</div>
+        <div class="wave" id="wave" aria-hidden="true"></div>
+        <input class="seek" id="seek" aria-label="Track progress" type="range" min="0" max="1000" value="0">
+        <div class="times"><span id="current">0:00</span><span id="duration">4:37</span></div>
+        <div class="transport"><button class="circle" id="prev" type="button" aria-label="Previous track">❮</button><button class="circle play" id="play" type="button" aria-label="Play">▶</button><button class="circle" id="next" type="button" aria-label="Next track">❯</button></div>
+        <div class="volume-row"><span aria-hidden="true">♪</span><input id="volume" aria-label="Volume" type="range" min="0" max="100" value="72"><span id="volumeValue">72%</span></div>
+        <div class="demo-note">Interactive visual demo. Tony’s final audio files will replace the simulated playback.</div>
+      </div>
+      <div class="playlist"><div class="playlist-head"><span>Playlist</span><span>10 tracks</span></div><div id="tracklist"></div></div>
+    </section>
+    <div class="status" id="status" aria-live="polite">Choose a track or press play to preview the player.</div>
+  </main>
+  <script>
+    (()=>{
+      const tracks=[['Track 01',277],['Track 02',232],['Track 03',250],['Track 04',208],['Track 05',301],['Track 06',262],['Track 07',225],['Track 08',258],['Track 09',230],['Track 10',246]];
+      let index=0,elapsed=0,playing=false,timer=null;
+      const $=id=>document.getElementById(id), title=$('title'),counter=$('counter'),seek=$('seek'),current=$('current'),duration=$('duration'),play=$('play'),list=$('tracklist'),status=$('status'),wave=$('wave');
+      const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+      Array.from({length:58},(_,i)=>{const bar=document.createElement('i');bar.style.setProperty('--h',`${18+((i*37)%68)}%`);wave.appendChild(bar)});
+      function listRender(){list.innerHTML='';tracks.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.className='track';b.setAttribute('aria-current',String(i===index));b.innerHTML=`<span class="num">${String(i+1).padStart(2,'0')}</span><span class="tname">${t[0]}</span><span class="dur">${fmt(t[1])}</span>`;b.onclick=()=>select(i,true);list.appendChild(b)})}
+      function paint(){const t=tracks[index],ratio=Math.min(1,elapsed/t[1]);title.textContent=t[0];counter.textContent=`${String(index+1).padStart(2,'0')} / 10`;current.textContent=fmt(elapsed);duration.textContent=fmt(t[1]);seek.value=Math.round(ratio*1000);[...wave.children].forEach((b,i)=>b.classList.toggle('on',i/58<=ratio));listRender()}
+      function start(){playing=true;play.textContent='Ⅱ';play.setAttribute('aria-label','Pause');status.textContent=`Playing ${tracks[index][0]} demo…`;if(!timer)timer=setInterval(tick,1000)}
+      function pause(){playing=false;play.textContent='▶';play.setAttribute('aria-label','Play');status.textContent=`Paused ${tracks[index][0]} at ${fmt(elapsed)}.`}
+      function select(i,auto=false){index=(i+tracks.length)%tracks.length;elapsed=0;paint();if(auto||playing)start()}
+      function tick(){if(!playing)return;elapsed++;if(elapsed>=tracks[index][1])select(index+1);else paint()}
+      play.onclick=()=>playing?pause():start();$('prev').onclick=()=>select(index-1,playing);$('next').onclick=()=>select(index+1,playing);seek.oninput=()=>{elapsed=(Number(seek.value)/1000)*tracks[index][1];paint()};$('volume').oninput=e=>$('volumeValue').textContent=`${e.target.value}%`;paint();
+    })();
+  </script>
+</body>
+</html>
